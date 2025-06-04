@@ -1,0 +1,60 @@
+# ### BROWSE
+# GET http://localhost:8080/api/user
+# Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MjA5OTM4NjUsImV4cCI6MTcyMDk5NzQ2NSwicm9sZXMiOlsiUk9MRV9BRE1JTiIsIlJPTEVfVVNFUiJdLCJ1c2VybmFtZSI6ImFkbWluQG9wbGF5LmZyIn0.IarOysqpxLp-MtmYHSXa3-6n1z0oMQUHriR9s1K3-50_Ak2klU-7GzfVtLalN9urrm31TK5xtk732ELFaAKxoFiAbdOIYPr5hhtansjUjyJcmYp3sRFBWwzc2pE0cQHqbwOXarTgy275tj2m-dhTiP4Gwa2mu27D2OqAVP7_AauoMA470M7w06OVOJwSQ6NUsmKGkLpeZAfvqr30Lvrbjj3fxtezPuIQrwaQ5F7SkQv-LZFPZiMk29x29-fqWKC7t4F0R03njlMg0GdogYwTSZXamLHh6bqWWylbbA7wyoSAqM7vIJy_jUfXBujOXjknuf169KLew_ZgwCt5DTIKbw
+
+
+### DETAIL
+GET http://localhost:8080/api/user/detail
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MjEwNjg5OTIsImV4cCI6MTcyMTA3MjU5Miwicm9sZXMiOlsiUk9MRV9BRE1JTiIsIlJPTEVfVVNFUiJdLCJ1c2VybmFtZSI6ImFkbWluQG9wbGF5LmZyIn0.jsM2olCxHldDFSflHzXO_-Kr0J_DSOLwiDuFASDzgM6DLNeW894YlmHDiGpFqTgcbwl3bMrWYqvcmnibtESQUI7aNlj3Q9522E--XkBer5bqwQdd0k9WwWZNAdfW6pYPjXag2iIqSQP2LBG_HncHWkDfr4GN1CUW68FfrcvzGdtu_AcSfP_nxN7ze0xFoeDe48zWKqz__-PdiAkuInkvZza1OVMzF41OvWL_MDS1WiwYSWAxmiLZf6knnL8vx3myC1E0GZriCPYULO1LvZ-ZP_pzEX5cURaXPp7xJLuwCUDWNhW6xlBFB3ZlOzfopf8H97o6VCgSzggDU_b-rYkTyg
+
+### Register User
+POST http://localhost:8080/api/user/register
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MjEwNTE0MzMsImV4cCI6MTcyMTA1NTAzMywicm9sZXMiOlsiUk9MRV9BRE1JTiIsIlJPTEVfVVNFUiJdLCJ1c2VybmFtZSI6ImFkbWluQG9wbGF5LmZyIn0.X1yFVK0NlLqM7Goc-kuWIFcMVlYvDEgCbTDh7RIXACZccw6ZieI8ISIie-YDvcuDc8sYRvTPCuOt9dtWVrsydU5LLwDycg4qXcfI8sYmfmRvPp6t9Un5W64X5JPFirKDiWTz4ORTzFI41pGdB40cSunyk8wza6h6WE8LwTq7f48rH_ruKUwdiCYVkAW4xZoUvNpGHH8duZFD_SwOdCXcR0PoJ-rAgVf7Pj_we3rfHXLWm8qo53E5Q6IC5AY2Mbawxu_88FY3Zm59HpF0nB7IIokIuzcPb9PcOu5YuKZVQtE7hhctzAeEKiny3iJjj4EpbFC6LWKzTsoUk4AzF5ZtSQ
+
+{
+    "firstname": "Gui",
+    "lastname": "Gui",
+    "nickname": "GIOM",
+    "email": "gui.@oplay.fr",
+    "password": "123",
+    "picture": ""
+}
+
+### Edit User
+PATCH http://localhost:8080/api/user/edit
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MjEwMzAyMDYsImV4cCI6MTcyMTAzMzgwNiwicm9sZXMiOlsiUk9MRV9BRE1JTiIsIlJPTEVfVVNFUiJdLCJ1c2VybmFtZSI6ImFkbWluQG9wbGF5LmZyIn0.fV1DwuA4LJVqurewL69PAOnIZnAaNrdu4YQWUOSULr1cH5KtSWGIy_En7ARa5fGDWQ_DQePSJi_MUqMJ3yvLr41AUs8wcROF0Rvdtwpu5kguCiYLChFwWN5YEVLfhwEFlvOJcCkFD4By8TIlaU6mMt36cklskChuD6a1kSa7Rw6fkRzKb-wgy3xp2TgZEexX-1_uGf5XR4jfwG0iyYsGVvDEzSBMh-WY3r0N3hOaDgIHPgj4LzMy7wVYh2zfShedE0hfYT8QmfRes6qSqnpLT1-4ZlGotDIXn1Suquk7Taa0F46tkglLcdEhvkIZFDs4s8qhmA_AVKT0JrYg0HRlzQ
+
+{
+    "firstname": "Test2",
+    "lastname": "Test2",
+    "nickname": "Test2",
+    "email": "test2@example.com",
+    "password": "password123",
+    "picture": ""
+}
+
+
+### Prefered Tag User
+POST http://localhost:8080/api/user/tags
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MjA5OTM4NjUsImV4cCI6MTcyMDk5NzQ2NSwicm9sZXMiOlsiUk9MRV9BRE1JTiIsIlJPTEVfVVNFUiJdLCJ1c2VybmFtZSI6ImFkbWluQG9wbGF5LmZyIn0.IarOysqpxLp-MtmYHSXa3-6n1z0oMQUHriR9s1K3-50_Ak2klU-7GzfVtLalN9urrm31TK5xtk732ELFaAKxoFiAbdOIYPr5hhtansjUjyJcmYp3sRFBWwzc2pE0cQHqbwOXarTgy275tj2m-dhTiP4Gwa2mu27D2OqAVP7_AauoMA470M7w06OVOJwSQ6NUsmKGkLpeZAfvqr30Lvrbjj3fxtezPuIQrwaQ5F7SkQv-LZFPZiMk29x29-fqWKC7t4F0R03njlMg0GdogYwTSZXamLHh6bqWWylbbA7wyoSAqM7vIJy_jUfXBujOXjknuf169KLew_ZgwCt5DTIKbw
+
+{
+    "tag_ids": [57, 58, 59]
+}
+
+### Selected Category User
+POST http://localhost:8080/api/user/categories
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MjA5OTM4NjUsImV4cCI6MTcyMDk5NzQ2NSwicm9sZXMiOlsiUk9MRV9BRE1JTiIsIlJPTEVfVVNFUiJdLCJ1c2VybmFtZSI6ImFkbWluQG9wbGF5LmZyIn0.IarOysqpxLp-MtmYHSXa3-6n1z0oMQUHriR9s1K3-50_Ak2klU-7GzfVtLalN9urrm31TK5xtk732ELFaAKxoFiAbdOIYPr5hhtansjUjyJcmYp3sRFBWwzc2pE0cQHqbwOXarTgy275tj2m-dhTiP4Gwa2mu27D2OqAVP7_AauoMA470M7w06OVOJwSQ6NUsmKGkLpeZAfvqr30Lvrbjj3fxtezPuIQrwaQ5F7SkQv-LZFPZiMk29x29-fqWKC7t4F0R03njlMg0GdogYwTSZXamLHh6bqWWylbbA7wyoSAqM7vIJy_jUfXBujOXjknuf169KLew_ZgwCt5DTIKbw
+
+{
+    "category_ids": [25, 26, 27]
+}
+
+
+### Selected Theme User
+POST http://localhost:8080/api/user/theme
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MjA5OTM4NjUsImV4cCI6MTcyMDk5NzQ2NSwicm9sZXMiOlsiUk9MRV9BRE1JTiIsIlJPTEVfVVNFUiJdLCJ1c2VybmFtZSI6ImFkbWluQG9wbGF5LmZyIn0.IarOysqpxLp-MtmYHSXa3-6n1z0oMQUHriR9s1K3-50_Ak2klU-7GzfVtLalN9urrm31TK5xtk732ELFaAKxoFiAbdOIYPr5hhtansjUjyJcmYp3sRFBWwzc2pE0cQHqbwOXarTgy275tj2m-dhTiP4Gwa2mu27D2OqAVP7_AauoMA470M7w06OVOJwSQ6NUsmKGkLpeZAfvqr30Lvrbjj3fxtezPuIQrwaQ5F7SkQv-LZFPZiMk29x29-fqWKC7t4F0R03njlMg0GdogYwTSZXamLHh6bqWWylbbA7wyoSAqM7vIJy_jUfXBujOXjknuf169KLew_ZgwCt5DTIKbw
+
+{
+    "theme_id": 25
+}

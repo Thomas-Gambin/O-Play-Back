@@ -1,0 +1,20 @@
+### CONNECT ADMIN
+GET http://localhost:8080/api/login_check
+Content-Type: application/json
+
+{
+    "username": "admin@oplay.fr",
+    "password": "admin"
+}
+
+### Connect USER
+GET http://localhost:8080/api/login_check
+Content-Type: application/json
+
+{
+    "username": "gui.@oplay.fr",
+    "password": "123"
+}
+
+
+

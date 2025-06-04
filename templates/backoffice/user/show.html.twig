@@ -1,0 +1,116 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}User{% endblock %}
+
+{% block body %}
+    <div class="d-flex justify-content-center">
+        <div class="w-75">
+            <h1 class="text-center mb-4">User</h1>
+
+            <table class="table table-striped">
+                <tbody>
+                    <tr>
+                        <th>User N°</th>
+                        <td>{{ user.id }}</td>
+                    </tr>
+                    <tr>
+                        <th>Firstname</th>
+                        <td>{{ user.firstname }}</td>
+                    </tr>
+                    <tr>
+                        <th>Lastname</th>
+                        <td>{{ user.lastname }}</td>
+                    </tr>
+                    <tr>
+                        <th>Nickname</th>
+                        <td>{{ user.nickname }}</td>
+                    </tr>
+                    <tr>
+                        <th>Picture</th>
+                        <td>{{ user.picture }}</td>
+                    </tr>
+                    <tr>
+                        <th>Email</th>
+                        <td>{{ user.email }}</td>
+                    </tr>
+                    <tr>
+                        <th>Selected Tags</th>
+                        <td>
+                            {% for tag in user.preferedTag %}
+                                {{ tag.name }}{% if not loop.last %}, {% endif %}
+                            {% endfor %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Selected Categories</th>
+                        <td>
+                            {% for category in user.selectedCategory %}
+                                {{ category.name }}{% if not loop.last %}, {% endif %}
+                            {% endfor %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Selected Theme</th>
+                        <td>
+                        {% if user.chooseTheme is not null %}
+                            {{ user.chooseTheme.name }}
+                        {% endif %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Roles</th>
+                        <td>{{ user.roles ? user.roles|join(', ') : '' }}</td>
+                    </tr>
+                    <tr>
+                        <th>Games and Keys</th>
+                        <td>
+                            {% for order in user.orders %}
+                                <h5>Order n° {{ order.id }}</h5>
+                                {% set displayedGames = [] %}
+                                {% for gameOrder in order.gameOrders %}
+                                    {% set game = gameOrder.game %}
+                                    {% if game.id not in displayedGames %}
+                                        <div class="card mb-3">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Game: {{ game.name }}</h5>
+                                                <p>Quantity : {{ gameOrder.quantity }}<p/>
+                                                {% set gameKeys = [] %}
+                                                {% for userGameKey in game.userGameKeys %}
+                                                    {% if userGameKey.user.id == user.id %}
+                                                        {% set keyCreatedAt = userGameKey.createdAt|date('Y-m-d H:i') %}
+                                                        {% set orderCreatedAt = order.createdAt|date('Y-m-d H:i') %}
+                                                        {% if keyCreatedAt == orderCreatedAt %}
+                                                            {% set gameKeys = gameKeys|merge([userGameKey]) %}
+                                                        {% endif %}
+                                                    {% endif %}
+                                                {% endfor %}
+                                                {% if gameKeys|length > 0 %}
+                                                    <ul>
+                                                        {% for gameKey in gameKeys %}
+                                                            <li>Key: {{ gameKey.gameKey|mask_key }}</li>
+                                                            {% if order.status != 'pending' %}
+                                                            Issues -> <a href="{{ path('app_game_generate_key_user', {'id': gameKey.id}) }}" class="btn btn-warning btn-sm mb-2">Generate New Key</a>
+                                                        {% endif %}
+                                                        {% endfor %}
+                                                    </ul>
+                                                {% else %}
+                                                    <p>No keys available</p>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                        {% set displayedGames = displayedGames|merge([game.id]) %}
+                                    {% endif %}
+                                {% endfor %}
+                            {% endfor %}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="text-center mt-3">
+                <a href="{{ path('app_user_index') }}" class="btn btn-secondary">Back to list</a>
+                <a href="{{ path('app_user_edit', {'id': user.id}) }}" class="btn btn-primary ms-2">Edit</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
